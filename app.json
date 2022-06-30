@@ -3,8 +3,13 @@
     "name": "TestProjec",
     "slug": "TestProjec",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "description": "",
+    "android": {
+      "package": "test.expo.client"
+    },
+    "ios": {
+      "usesIcloudStorage": true
+    }
   }
 }
