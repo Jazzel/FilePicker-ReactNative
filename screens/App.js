@@ -2,46 +2,19 @@ import React, { useState, useEffect, useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import {
-  StyleSheet,
-  Text,
-  Button,
-} from "react-native";
+import { StyleSheet, Text, Button } from "react-native";
 
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
-
-import * as DocumentPicker from "expo-document-picker";
 import HomeScreen from "./Home";
-import Splash from "./Splash";
+import DetailsScreen from "./Details";
+import SplashScreen from "./Splash";
 
-
-function DetailsScreen({ navigation }) {
-  const openGallery = async () => {
-    let result = await DocumentPicker.getDocumentAsync({});
-    console.log(result);
-    if (!result.cancelled) {
-      // this.setState({ selectedImage: result.uri, imageDetails: result });
-    }
-  };
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={"dark-content"} />
-      <Text style={styles.text}> 
-        Upload Files 
-      </Text>
-      <Button title="Click here to upload file" onPress={openGallery} />
-    </SafeAreaView>
-  );
-}
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Splash">
-        <Stack.Screen name="Splash" component={Splash} />      
+      <Stack.Navigator initialRouteName="Upload">
+        <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Upload" component={DetailsScreen} />
       </Stack.Navigator>

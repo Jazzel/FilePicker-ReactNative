@@ -1,7 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import * as SplashScreen from 'expo-splash-screen';
 
 import {
   StyleSheet,
@@ -13,11 +10,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
-
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
-
-import * as DocumentPicker from "expo-document-picker";
 
 const HOLD_TIME = 0;
 
@@ -46,9 +38,7 @@ function HomeScreen({ navigation }) {
       setTimeout(() => {
         navigation.navigate("Upload");
       }, HOLD_TIME);
-    } 
-    
-    else {
+    } else {
       if (!checkForNameValidation() && !checkForPasswordValidation()) {
         // alert("Please enter valid name and password");
         Alert.alert(
@@ -57,9 +47,7 @@ function HomeScreen({ navigation }) {
           [{ text: "OK" }],
           { cancelable: true }
         );
-      } 
-      
-      else {
+      } else {
         if (!checkForNameValidation()) {
           alert("Please enter valid name");
           Alert.alert(
@@ -69,7 +57,7 @@ function HomeScreen({ navigation }) {
             { cancelable: true }
           );
         }
-        
+
         if (!checkForPasswordValidation()) {
           alert("Please enter valid password");
           Alert.alert(
@@ -113,37 +101,37 @@ function HomeScreen({ navigation }) {
   );
 }
 const styles = StyleSheet.create({
-    body: {
-      flex: 1,
-      flexDirection: "column",
-      backgroundColor: "white",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  
-    text: {
-      color: "black",
-      fontSize: 20,
-      margin: 10,
-      textAlign: "center",
-      fontWeight: "bold",
-    },
-  
-    input: {
-      width: 200,
-      height: 40,
-      paddingHorizontal: 15,
-      borderWidth: 1,
-      borderColor: "#6495ED",
-      margin: 15,
-      borderRadius: 10,
-    },
-  
-    image: {
-      width: 100,
-      height: 100,
-      margin: 10,
-    },
-  });
+  body: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "white",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  text: {
+    color: "black",
+    fontSize: 20,
+    margin: 10,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
+  input: {
+    width: 200,
+    height: 40,
+    paddingHorizontal: 15,
+    borderWidth: 1,
+    borderColor: "#6495ED",
+    margin: 15,
+    borderRadius: 10,
+  },
+
+  image: {
+    width: 100,
+    height: 100,
+    margin: 10,
+  },
+});
 
 export default HomeScreen;
