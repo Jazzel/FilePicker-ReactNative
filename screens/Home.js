@@ -88,7 +88,16 @@ function HomeScreen({ navigation }) {
             }}
           >
             <View style={{ width: "20%" }}>
-              <Text style={styles.text1}>Login</Text>
+              <Text
+                style={[
+                  styles.text1,
+                  {
+                    transform: [{ rotate: "-90deg" }],
+                  },
+                ]}
+              >
+                Login
+              </Text>
             </View>
             <View style={{ width: "80%" }}>
               <Text style={styles.text2}>Enter Credentials</Text>
@@ -96,7 +105,7 @@ function HomeScreen({ navigation }) {
           </View>
           <TextInput
             variant="standard"
-            style={{ ...styles.input, marginTop: 100, width: "65%" }}
+            style={styles.input1}
             placeholder="Name"
             value={name}
             inputStyle={{ color: "white" }}
@@ -106,7 +115,7 @@ function HomeScreen({ navigation }) {
           />
           <TextInput
             variant="standard"
-            style={styles.input}
+            style={styles.input2}
             placeholder="Password"
             value={password}
             inputStyle={{ color: "white" }}
@@ -146,7 +155,6 @@ const styles = StyleSheet.create({
     marginTop: 30,
     fontSize: 28,
     fontWeight: "bold",
-    transform: "rotate(-90deg)",
   },
   text2: {
     color: "white",
@@ -158,7 +166,13 @@ const styles = StyleSheet.create({
     width: "80%",
   },
 
-  input: {
+  input1: {
+    paddingVertical: 10,
+    width: "65%",
+    marginTop: 100,
+    width: "65%",
+  },
+  input2: {
     paddingVertical: 10,
     width: "65%",
   },
