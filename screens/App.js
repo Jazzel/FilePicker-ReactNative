@@ -7,18 +7,28 @@ import { StyleSheet, Text, Button } from "react-native";
 import HomeScreen from "./Home";
 import DetailsScreen from "./Details";
 import SplashScreen from "./Splash";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import UploadScreen from "./Upload";
+import DetectionScreen from "./Detection";
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Upload">
-        <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Upload" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Splash"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Splash" component={SplashScreen} />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          {/* <Stack.Screen name="Upload2" component={DetailsScreen} /> */}
+          <Stack.Screen name="Upload" component={UploadScreen} />
+          <Stack.Screen name="Detection" component={DetectionScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

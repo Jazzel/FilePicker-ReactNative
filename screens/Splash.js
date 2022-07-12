@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, StatusBar, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { SafeAreaView } from "react-native-safe-area-context";
+// import gif from './../assets/gif.svg';
+
 const styles = StyleSheet.create({
   container: {
     background:
@@ -21,13 +22,17 @@ function SplashScreen({ navigation }) {
   }, []);
 
   return (
-    <LinearGradient style={{ flex: 1 }} colors={["#3A6073", "#16222A"]}>
-      <StatusBar hidden={true} />
-
-      <View style={styles.container}>
-        <Text style={styles.text}>dsad</Text>
-      </View>
-    </LinearGradient>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" backgroundColor="#6a51ae" />
+      <LinearGradient style={{ flex: 1 }} colors={["#3A6073", "#16222A"]}>
+        <View style={styles.container}>
+          <Image
+            source={require("./../assets/gif.gif")}
+            style={{ height: 150, width: 150 }}
+          />
+        </View>
+      </LinearGradient>
+    </SafeAreaView>
   );
 }
 
