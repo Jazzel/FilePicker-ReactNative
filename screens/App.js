@@ -18,7 +18,7 @@ function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Splash"
+          initialRouteName="Upload"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Splash" component={SplashScreen} />
